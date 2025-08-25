@@ -3,7 +3,7 @@
 ## Опис проєкту
 Цей проєкт є **Data Engineering рішенням**, яке реалізує **ETL pipeline** на основі 
 **медальйонної архітектури (Bronze – Silver – Gold)** для обробки, збереження та аналітики даних про:
-- щоденні ціни на паливо в Україні (середні та за брендами) зі сайту [https://index.minfin.com.ua/ua/markets/fuel/](https://index.minfin.com.ua/ua/markets/fuel/)
+- щоденні ціни на паливо в Україні (середні та за брендами) зі сайту [https://index.minfin.com.ua/ua/markets/fuel/](https://index.minfin.com.ua/ua/markets/fuel/detail/)
 - офіційні курси валют НБУ
 - інформацію про заправки (локація, наявність кафе, мийки, магазину — дані згенеровані ШІ).
 
@@ -17,7 +17,7 @@
 ## Архітектура трансформацій даних
 - **Bronze (інкрементальні дані)**  
   - Дані завантажуються з джерел:  
-    - **Веб-скрапінг** — сайт [Ціни на паливо (Minfin)](https://index.minfin.com.ua/ua/markets/fuel/) (*історичні та щоденні дані*).  
+    - **Веб-скрапінг** — сайт [Ціни на паливо (Minfin)](https://index.minfin.com.ua/ua/markets/fuel/reg/vinnickaya/2025-01/) (*історичні та щоденні дані*).  
     - **API** — [НБУ курси валют](https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json).  
       - Використовується параметр: якщо дані *щоденні* — виконується *copy activities*,  
         у випадку *історичних* — застосовується окремий код для обробки.  
